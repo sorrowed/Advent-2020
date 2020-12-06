@@ -21,10 +21,10 @@ fn divide_and_conquer(specification: &str, lower: char, upper: char) -> i32 {
 }
 
 fn seat_id(specification: &str) -> (i32, i32, i32) {
-    let rid = divide_and_conquer(&specification[0..7], 'F', 'B');
-    let cid = divide_and_conquer(&specification[7..10], 'L', 'R');
+    let rowid = divide_and_conquer(&specification[0..7], 'F', 'B');
+    let columnid = divide_and_conquer(&specification[7..10], 'L', 'R');
 
-    (rid, cid, rid * 8 + cid)
+    (rowid, columnid, rowid * 8 + columnid)
 }
 
 //#[test]
