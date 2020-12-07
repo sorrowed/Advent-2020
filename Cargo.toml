@@ -1,5 +1,5 @@
 [package]
-name = "Advent-2020"
+name = "advent-2020"
 version = "0.1.0"
 authors = ["Tom Bulsink <t.bulsink@sorrowed.nl>"]
 edition = "2018"
@@ -10,5 +10,5 @@ edition = "2018"
 regex = "1.4.2"
 
 [[bin]]
-name = "Advent-2020"
+name = "advent-2020"
 path = "main.rs"
