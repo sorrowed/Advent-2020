@@ -123,6 +123,7 @@ pub fn test() {
     let mut program = Program::new(&input);
     program.execute(&mut machine);
 }
+
 pub fn part1() {
     let input = common::import("day8/input.txt");
 
