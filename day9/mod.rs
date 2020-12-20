@@ -30,7 +30,7 @@ fn find_missing_combinations(input: &[i64], preamble: usize) -> Vec<i64> {
     result
 }
 
-fn exists_sum(input: &[i64], target: i64) -> Option<Vec<i64>> {
+fn find_window_sum(input: &[i64], target: i64) -> Option<Vec<i64>> {
     for length in 2..input.len() {
         for s in input.windows(length) {
             if s.iter().fold(0, |acc, x| acc + x) == target {
@@ -76,7 +76,7 @@ pub fn part2() {
         .collect::<Vec<i64>>();
 
     let missing = find_missing_combinations(&input, 25usize)[0];
-    if let Some(mut window) = exists_sum(&input, missing) {
+    if let Some(mut window) = find_window_sum(&input, missing) {
         window.sort();
 
         println!(
