@@ -35,10 +35,10 @@ impl Chain {
         // of those that these groups of ones add
         self.adapters
             .windows(2)
-            .map(|w| w[1] - w[0])   // Collect differences between adapter joltages
-            .group_by(|&difference| difference == 1)  // Assuming differences are only 1 or three, group them
+            .map(|w| w[1] - w[0]) // Collect differences between adapter joltages
+            .group_by(|&d| d == 1) // Assuming differences are only 1 or three, group them
             .into_iter()
-            .filter(|(is_one_group, _)| *is_one_group)    // Only interested in the *length* of the 1 difference groups, thus groups where d == 1 is true
+            .filter(|(is_one_group, _)| *is_one_group) // Only interested in the *length* of the 1 difference groups, thus groups where d == 1 is true
             .map(|(_, group)| group.count())
             .fold(1, |acc, length| {
                 acc * match length {
