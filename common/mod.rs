@@ -24,7 +24,11 @@ impl Vector {
     }
 
     pub fn offset(&self, other: &Vector) -> Vector {
-        Vector::new(self.x + other.x, self.y + other.y,self.z + other.z)
+        Vector::new(self.x + other.x, self.y + other.y, self.z + other.z)
+    }
+
+    pub fn manhattan(&self, other: &Vector) -> i64 {
+        (other.x - self.x).abs() + (other.y - self.y).abs()
     }
 }
 

@@ -29,14 +29,14 @@ type Callback = for<'a> fn(&'a Tiles, &Vector) -> Vec<&'a Tile>;
 
 struct Map {
     tiles: Tiles,
-    br: Vector,
+    bottom_right: Vector,
 }
 
 impl Map {
     fn new() -> Map {
         Map {
             tiles: HashMap::new(),
-            br: Vector::new(0, 0, 0),
+            bottom_right: Vector::new(0, 0, 0),
         }
     }
 
@@ -54,8 +54,8 @@ impl Map {
     }
 
     fn add(&mut self, location: Vector, tile: Tile) {
-        self.br.x = i64::max(self.br.x, location.x);
-        self.br.y = i64::max(self.br.y, location.y);
+        self.bottom_right.x = i64::max(self.bottom_right.x, location.x);
+        self.bottom_right.y = i64::max(self.bottom_right.y, location.y);
 
         self.tiles.insert(location, tile);
     }
@@ -88,8 +88,8 @@ impl Map {
     }
 
     fn print(&self) {
-        for y in 0..=self.br.y {
-            for x in 0..=self.br.x {
+        for y in 0..=self.bottom_right.y {
+            for x in 0..=self.bottom_right.x {
                 print!(
                     "{}",
                     if let Some(tile) = self.tiles.get(&Vector::new(x, y, 0)) {
