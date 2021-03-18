@@ -9,6 +9,7 @@ edition = "2018"
 [dependencies]
 regex = "1.4.2"
 itertools = ""
+text_io=""
 
 [[bin]]
 name = "advent-2020"
